@@ -3,11 +3,11 @@ import numpy as np
 
 def dX_dt(X, a, b, c, d):
     """
-    Functions to compute the growth rate of fox and rabbit populations.
-    
+    Computes the growth rate of fox and rabbit populations based on system state (X) and parameters (a,b,c,d)
+
     Parameters
     ----------
-    X : array or tuple 
+    X : array or tuple
         [prey_count, predator_count]
     a : float, optional
         natural growth rate of the prey (rabbit)
@@ -20,7 +20,7 @@ def dX_dt(X, a, b, c, d):
 
     Returns
     -------
-    numpy array 
+    numpy array
         [change of prey_count, change of predator_count]
     """
     return np.array([a * X[0] - b * X[0] * X[1], -c * X[1] + d * b * X[0] * X[1]])
