@@ -1,3 +1,10 @@
+"""
+Module containing simulation code of the Lotka Volterra model.
+
+Adapted from:
+https://github.com/scipy/scipy-cookbook/blob/master/ipython/LotkaVolterraTutorial.ipynb
+"""
+
 import numpy as np
 
 
