@@ -5,9 +5,9 @@ from LotkaVolterraModel import dX_dt, check_equilibrium
 
 
 # Definition of parameters
-a = 1.0   # natural growth rate of rabbits (prey)
-b = 0.1   # natural dying rate of rabbits
-c = 1.5   # natural dying rate of foxes
+a = 1.0  # natural growth rate of rabbits (prey)
+b = 0.1  # natural dying rate of rabbits
+c = 1.5  # natural dying rate of foxes
 d = 0.75  # factor describing growth of foxes based on caught rabbits
 
 """

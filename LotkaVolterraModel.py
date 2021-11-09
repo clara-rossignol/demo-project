@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def dX_dt(X, a, b, c, d):
+def dX_dt(X, a=1.0, b=0.1, c=1.5, d=0.75):
     """
     Computes the growth rate of fox and rabbit populations based on system state (X) and parameters (a,b,c,d)
 
