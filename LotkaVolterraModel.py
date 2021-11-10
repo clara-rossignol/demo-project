@@ -125,8 +125,15 @@ def check_equilibrium(a=1.0, b=0.1, c=1.5, d=0.75):
             print(eq, " is not a fix point!")
 
 
-if __name__ == "__main__":    
-    import doctest
-    print("Starting doctests")      # not required!
+if __name__ == "__main__":
+
+    if dX_dt(np.ones(2),1,0.1,1.5,.75) == np.array([ 0.9  , -1.425]):
+        print("works!!")
     
+    '''
+    import doctest
+
+    print("Starting doctests")  # not required!
+
     doctest.testmod()
+    '''

@@ -13,9 +13,19 @@ If you are a new user, we recommend checking out the detailed Github Guides.
 
 # Testing the code
 
-We use [doctests](https://docs.python.org/3/library/doctest.html). You can test the LotkaVolterraModel by:
+We use [doctests](https://docs.python.org/3/library/doctest.html) and [pytest](https://docs.pytest.org/en/6.2.x/contents.html). 
+
+You can (doc)test the LotkaVolterraModel by:
+
 ```python3 LotkaVolterraModel.py ```
+
 It should have no output (if all tests pass). 
 
 You can also get a detailed output pass verbose flag:
+
 ```python3 LotkaVolterraModel.py -v```
+
+You can also run the whole test-suite with 
+
+```pytest```
+
