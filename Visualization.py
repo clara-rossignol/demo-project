@@ -38,4 +38,4 @@ def evolution(t, X, savefig=True, showfig=True):
         fig1.savefig(os.path.join(foldername, "rabbits_and_foxes_1.png"))
 
     if showfig:
-        fig1.show()
+        plt.show()
