@@ -10,3 +10,12 @@ This project's goal is to illustrate how GitHub can be used to develop a softwar
 This is an openly developed project and we welcome community contributions, especially from BIO-210 students!
 We are happy to receive code extensions, bug fixes, documentation updates, etc.
 If you are a new user, we recommend checking out the detailed Github Guides.
+
+# Testing the code
+
+We use [doctests](https://docs.python.org/3/library/doctest.html). You can test the LotkaVolterraModel by:
+```python3 LotkaVolterraModel.py ```
+It should have no output (if all tests pass). 
+
+You can also get a detailed output pass verbose flag:
+```python3 LotkaVolterraModel.py -v```
