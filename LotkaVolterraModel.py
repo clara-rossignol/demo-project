@@ -8,13 +8,13 @@ https://github.com/scipy/scipy-cookbook/blob/master/ipython/LotkaVolterraTutoria
 import numpy as np
 
 
-def dX_dt(X, a, b, c, d):
+def dX_dt(X, a=1.0, b=0.1, c=1.5, d=0.75):
     """
     Computes the growth rate of fox and rabbit populations based on system state (X) and parameters (a,b,c,d)
-    
+
     Parameters
     ----------
-    X : array or tuple 
+    X : array or tuple
         [prey_count, predator_count]
     a : float, optional
         natural growth rate of the prey (rabbit)
@@ -27,7 +27,7 @@ def dX_dt(X, a, b, c, d):
 
     Returns
     -------
-    numpy array 
+    numpy array
         [change of prey_count, change of predator_count]
     """
     return np.array([a * X[0] - b * X[0] * X[1], -c * X[1] + d * b * X[0] * X[1]])
