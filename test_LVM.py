@@ -9,3 +9,5 @@ def test_LotkaVolterraModel():
 def test_dX_dt():
     ''' a first example '''
     assert (LotkaVolterraModel.dX_dt(np.ones(2),1,0.1,1.5,.75) -  np.array([ 0.9  , -1.425])).all
+    
+def test_

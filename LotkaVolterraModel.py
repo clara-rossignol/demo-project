@@ -29,7 +29,6 @@ def dX_dt(X, a=1.0, b=0.1, c=1.5, d=0.75):
     array([ 0.9  , -1.425])
     >>> dX_dt(np.zeros(2),1,0.1,1.5,.75)        # zero is a fixpoint
     array([0., 0.])
-    
     """
     return np.array([a * X[0] - b * X[0] * X[1], -c * X[1] + d * b * X[0] * X[1]])
 
@@ -60,10 +59,13 @@ def d2X_dt2(X, a=1.0, b=0.1, c=1.5, d=0.75):
 
     Example
     -------
-    Jacobian at [0, 0] for 0 rabbits and 0 foxes.
+    Jacobian at [0, 0] for 0 rabbits and 0 foxes for default parameters
     >>> d2X_dt2(np.zeros(2))
     array([[ 1. , -0. ],
            [ 0. , -1.5]])
+    >>> d2X_dt2(np.zeros(2),a=2,b=.3,c=1.2,d=0.4)
+    array([[ 2. , -0. ],
+           [ 0. , -1.2]])
     """
     return np.array([[a - b * X[1], -b * X[0]], [b * d * X[1], -c + b * d * X[0]]])
 
@@ -91,9 +93,10 @@ def population_equilibrium(a=1.0, b=0.1, c=1.5, d=0.75):
 
     Examples
     -------
-    >>> population_equilibrium(1,0.1,1.5,.75)       
+    >>> population_equilibrium(1,0.1,1.5,.2)       
+    (array([0., 0.]), array([75., 10.]))
+    >>> population_equilibrium()
     (array([0., 0.]), array([20., 10.]))
-    
     """
 
     return np.zeros(2), np.array([c / (d * b), a / b])
@@ -126,14 +129,8 @@ def check_equilibrium(a=1.0, b=0.1, c=1.5, d=0.75):
 
 
 if __name__ == "__main__":
-
-    if dX_dt(np.ones(2),1,0.1,1.5,.75) == np.array([ 0.9  , -1.425]):
-        print("works!!")
-    
-    '''
     import doctest
 
     print("Starting doctests")  # not required!
 
     doctest.testmod()
-    '''
