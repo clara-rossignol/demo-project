@@ -1,3 +1,4 @@
+import sys
 import doctest
 import LotkaVolterraModel
 import numpy as np
@@ -43,9 +44,6 @@ def test_equilibria():
 def test_check_equilibrium():
     return_value = LotkaVolterraModel.check_equilibrium()
     assert return_value == None
-
-
-import sys
 
 
 def test_printoutput_checkeq(capsys):
