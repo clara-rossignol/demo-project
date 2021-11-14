@@ -136,5 +136,6 @@ def check_equilibrium(a=1.0, b=0.1, c=1.5, d=0.75):
 
 if __name__ == "__main__":
     import doctest
+
     print("Starting doctests")  # not required!
     doctest.testmod()
