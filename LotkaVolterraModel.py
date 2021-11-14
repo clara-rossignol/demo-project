@@ -93,12 +93,11 @@ def population_equilibrium(a=1.0, b=0.1, c=1.5, d=0.75):
 
     Examples
     -------
-    >>> population_equilibrium(1,0.1,1.5,.2)       
-    (array([0., 0.]), array([75., 10.]))
     >>> population_equilibrium()
     (array([0., 0.]), array([20., 10.]))
+    >>> population_equilibrium(1,0.1,1.5,.2)   
+    (array([0., 0.]), array([75., 10.]))
     """
-
     return np.zeros(2), np.array([c / (d * b), a / b])
 
 
@@ -130,7 +129,5 @@ def check_equilibrium(a=1.0, b=0.1, c=1.5, d=0.75):
 
 if __name__ == "__main__":
     import doctest
-
     print("Starting doctests")  # not required!
-
     doctest.testmod()

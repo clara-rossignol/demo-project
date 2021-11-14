@@ -15,6 +15,8 @@ If you are a new user, we recommend checking out the detailed Github Guides.
 
 We use [doctests](https://docs.python.org/3/library/doctest.html) and [pytest](https://docs.pytest.org/en/6.2.x/contents.html). 
 
+## Doctests
+
 You can (doc)test the LotkaVolterraModel by:
 
 ```python3 LotkaVolterraModel.py ```
@@ -25,7 +27,18 @@ You can also get a detailed output pass verbose flag:
 
 ```python3 LotkaVolterraModel.py -v```
 
-You can also run the whole test-suite with 
+## Pytests 
+
+We also created unit-tests for the `LotkaVolterraModel.py` in `test_LVM.py`. You can also run the whole test-suite with 
 
 ```pytest```
+
+## Coverage 
+
+You can assess the coverage by running:
+
+```
+coverage run -m pytest
+coverage report
+```
 
