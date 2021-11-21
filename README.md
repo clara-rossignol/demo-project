@@ -11,7 +11,19 @@ This is an openly developed project and we welcome community contributions, espe
 We are happy to receive code extensions, bug fixes, documentation updates, etc.
 If you are a new user, we recommend checking out the detailed Github Guides.
 
-# Unit-tests 
+# Requirements
+
+- Python >= 3.5
+- numpy
+- scipy 
+- matplotlib
+
+Specifially, I'm sharing a requirements file (req.txt)
+
+`conda create -n <environment-name> --file req.txt`
+
+
+# Testing
 
 We use [doctests](https://docs.python.org/3/library/doctest.html) and [pytest](https://docs.pytest.org/en/6.2.x/contents.html). 
 
