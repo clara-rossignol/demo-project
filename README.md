@@ -17,6 +17,7 @@ If you are a new user, we recommend checking out the detailed Github Guides.
 - numpy
 - scipy 
 - matplotlib
+- sklearn 
 
 Specifially, I'm sharing a requirements file (req.txt)
 

@@ -16,11 +16,14 @@ def test_dX_dt():
         - np.array([0.9, -1.425])
     ).all
 
+
 def test_dX_dt_wronginput():
     """ testing for wrong dimensions (ValueError) """
     import pytest
+
     with pytest.raises(ValueError):
         LotkaVolterraModel.dX_dt(np.ones(3), 1, 0.1, 1.5, 0.75)
+
 
 def test_growth():
     state = np.array([13.0, 12.0])
