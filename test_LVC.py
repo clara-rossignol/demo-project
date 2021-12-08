@@ -3,8 +3,6 @@ from LotkaVolterraClass import LVM, DataSaver
 from LotkaVolterraModel import dX_dt
 
 from scipy import integrate
-from scipy.optimize import linear_sum_assignment
-from scipy.spatial.distance import cdist 
 import numpy as np
 
 # Definition of parameters
