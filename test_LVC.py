@@ -14,20 +14,18 @@ d = 0.75  # factor describing growth of foxes based on caught rabbits
 numiter = 10000
 dt = 1.0 / numiter
 
+
 def test_sameresult():
     lvm = LVM(a, b, c, d, dt)
     saver = DataSaver(lvm)
-
 
     X0 = np.array([10, 5])  # initial conditions: 10 rabbits and 5 foxes
     lvm.dynamics(X0, numiter, saver)
     T, Xeuler = saver.get_data()["state_T"], np.array(saver.get_data()["state_X"])
     rabbits, foxes = Xeuler.T
-    
+
     X, infodict = integrate.odeint(
-        lambda x, _: dX_dt(x, a, b, c, d), X0,T, full_output=True
+        lambda x, _: dX_dt(x, a, b, c, d), X0, T, full_output=True
     )
 
-    assert np.allclose(Xeuler , X,atol=1e-3)
-
-    
+    assert np.allclose(Xeuler, X, atol=1e-3)

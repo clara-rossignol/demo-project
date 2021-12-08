@@ -55,6 +55,7 @@ class DataSaver:
         # TODO: https://www.sciencedirect.com/science/article/pii/S1474667017354101
         raise NotImplementedError()
 
+
 if __name__ == "__main__":
     # Definition of parameters
     a = 1.0  # natural growth rate of rabbits (prey)
@@ -107,6 +108,5 @@ if __name__ == "__main__":
     plt.title("Evolution of fox and rabbit populations")
 
     fig1.savefig("rabbits_and_foxes" + str(numiter) + ".png")
-
 
     plt.show()
