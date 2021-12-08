@@ -55,58 +55,58 @@ class DataSaver:
         # TODO: https://www.sciencedirect.com/science/article/pii/S1474667017354101
         raise NotImplementedError()
 
+if __name__ == "__main__":
+    # Definition of parameters
+    a = 1.0  # natural growth rate of rabbits (prey)
+    b = 0.1  # natural dying rate of rabbits
+    c = 1.5  # natural dying rate of foxes
+    d = 0.75  # factor describing growth of foxes based on caught rabbits
 
-# Definition of parameters
-a = 1.0  # natural growth rate of rabbits (prey)
-b = 0.1  # natural dying rate of rabbits
-c = 1.5  # natural dying rate of foxes
-d = 0.75  # factor describing growth of foxes based on caught rabbits
+    numiter = 100
+    dt = 15 * 1.0 / numiter
 
-numiter = 10000
-dt = 15 * 1.0 / numiter
+    lvm = LVM(a, b, c, d, dt)
+    saver = DataSaver(lvm)
 
-lvm = LVM(a, b, c, d, dt)
-saver = DataSaver(lvm)
+    X0 = np.array([10, 5])  # initial conditions: 10 rabbits and 5 foxes
+    lvm.dynamics(X0, numiter, saver)
 
-X0 = np.array([10, 5])  # initial conditions: 10 rabbits and 5 foxes
-lvm.dynamics(X0, numiter, saver)
+    # You could also index saver.data['state_T']
+    T, Xeuler = saver.get_data()["state_T"], np.array(saver.get_data()["state_X"])
+    rabbits, foxes = Xeuler.T
 
-# You could also index saver.data['state_T']
-T, Xeuler = saver.get_data()["state_T"], np.array(saver.get_data()["state_X"])
-rabbits, foxes = Xeuler.T
+    # from Visualization import evolution
+    # evolution(tt, XX)
 
-# from Visualization import evolution
-# evolution(tt, XX)
+    ### Alternative method for solving the system
+    from scipy import integrate
+    from LotkaVolterraModel import dX_dt
 
-### Alternative method for solving the system
-from scipy import integrate
-from LotkaVolterraModel import dX_dt
+    t = np.linspace(0, 15, 1000)  # time
+    X0 = np.array([10, 5])  # initial conditions: 10 rabbits and 5 foxes
+    X, infodict = integrate.odeint(
+        lambda x, _: dX_dt(x, a, b, c, d), X0, t, full_output=True
+    )
+    r, f = X.T
 
-t = np.linspace(0, 15, 1000)  # time
-X0 = np.array([10, 5])  # initial conditions: 10 rabbits and 5 foxes
-X, infodict = integrate.odeint(
-    lambda x, _: dX_dt(x, a, b, c, d), X0, t, full_output=True
-)
-r, f = X.T
+    # Comparing the two methods (overlaid)
 
-# Comparing the two methods (overlaid)
+    import matplotlib.pyplot as plt
 
-import matplotlib.pyplot as plt
+    fig1 = plt.figure()
+    plt.plot(T, rabbits, "r-", label="Rabbits")
+    plt.plot(T, foxes, "b-", label="Foxes")
 
-fig1 = plt.figure()
-plt.plot(T, rabbits, "r-", label="Rabbits")
-plt.plot(T, foxes, "b-", label="Foxes")
+    plt.plot(t, r, "r--", label="Rabbits")
+    plt.plot(t, f, "b--", label="Foxes")
 
-plt.plot(t, r, "r--", label="Rabbits")
-plt.plot(t, f, "b--", label="Foxes")
+    plt.grid()
+    plt.legend(loc="best")
+    plt.xlabel("time")
+    plt.ylabel("population")
+    plt.title("Evolution of fox and rabbit populations")
 
-plt.grid()
-plt.legend(loc="best")
-plt.xlabel("time")
-plt.ylabel("population")
-plt.title("Evolution of fox and rabbit populations")
-
-fig1.savefig("rabbits_and_foxes" + str(numiter) + ".png")
+    fig1.savefig("rabbits_and_foxes" + str(numiter) + ".png")
 
 
-plt.show()
+    plt.show()
